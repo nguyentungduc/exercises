@@ -54,15 +54,25 @@ Ví dụ: chuỗi `231` sau khi xoá đi 1 kí tự có thể trở thành `31`,
     /**
      * Calculate factorial number.
      *
-     * @param int $number Number
+     * @param String $number Number
      *
-     * @return int
+     * @return array
     */
-    public function calculatorFactorial(int $number) {
-        $result = 1;
+    public function getValueRemoveIndexOfStringMin(string $numberString) {
+        $result = [
+            'min'   => substr_replace($numberString, '', 0, 1),
+            'index' => 0,
+            'value' => $numberString[0],
+        ];
 
-        for ($i = $number; $i > 0; $i--) {
-            $result = $result * $i;
+        for ($i = 1; $i < strlen($numberString); $i++) {
+            if ($result['min'] > substr_replace($numberString, '', $i, 1)) {
+                $result = [
+                    'min'   => substr_replace($numberString, '', $i, 1),
+                    'index' => $i,
+                    'value' => $numberString[$i],
+                ];
+            };
         }
 
         return $result;
