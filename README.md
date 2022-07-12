@@ -87,17 +87,25 @@ Ví dụ: chuỗi `231` sau khi xoá đi 1 kí tự có thể trở thành `31`,
 
 ```bash
     /**
-     * Calculate factorial number.
+     * Get total candy.
      *
-     * @param int $number Number
-     *
+     * @param int $n Money by candy
+     * @param int $c Price 1 candy
+     * @param int $m number paper change candy
+     * 
      * @return int
     */
-    public function calculatorFactorial(int $number) {
-        $result = 1;
+    public function getTotalCandy(int $n, int $c, int $m) {
+        // number candy by from n money
+        $result = intval($n / $c);
+        $temp = $result;
+        // number candy remaining when change candy from paper 
+        $r = (intval($n / $c) / $m) % $m;
 
-        for ($i = $number; $i > 0; $i--) {
-            $result = $result * $i;
+        while (($temp + $r) > $m) {
+            $result += intval(($temp + $r) / $m);
+            $temp = intval(($temp + $r) / $m);
+            $r = intval($temp % $m);
         }
 
         return $result;
