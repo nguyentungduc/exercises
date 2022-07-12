@@ -52,9 +52,9 @@ Viết mã giả mô tả thuật toán kiểm tra 1 số n cho trước có ph�
 Ví dụ: chuỗi `231` sau khi xoá đi 1 kí tự có thể trở thành `31`, `21`, `23`. Chuỗi nhỏ nhất là `21`, đáp án đúng là xoá đi kí tự `3` trong chuỗi ban đầu.
 ```bash
     /**
-     * Calculate factorial number.
+     * Get value remove index of string min.
      *
-     * @param String $number Number
+     * @param String $number numberString
      *
      * @return array
     */
